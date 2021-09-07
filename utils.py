@@ -35,6 +35,8 @@ def get_results(question):
     df = pd.read_csv('ar_dataset_therapy.csv')
     full_len_sections = df['answerText'].tolist()
 
+    logger.info(f"(Pre QA Pipe) Total Full Sections: {len(full_len_sections)}")
+ 
     reader_time = Timer("electra", text="Reader Time: {:.2f}", logger=logging.info)
     reader_time.start()
     results = qa_pipe(
