@@ -32,6 +32,7 @@ def get_results(question):
     logger.info("\n~~~~")
     logger.info(f"Question: {question}")
 
+    # ~~CHANGE~~ Read context from csv file using pandas
     df = pd.read_csv('ar_dataset_therapy.csv')
     full_len_sections = df['answerText'].tolist()
 
@@ -61,12 +62,14 @@ def get_results(question):
             result["new_start"] = answer_match[0].start
             result["new_end"] = answer_match[0].end
             result["new_answer"] = answer_match[0].matched
+            # ~~CHANGE~~ remove links
             result["link"] = "!#"
         except:
             result["new_start"] = result["start"]
             result["new_end"] = result["end"]
             result["new_answer"] = result["answer"]
             result["original"] = preprocessor.preprocess(result["original"])
+            # ~~CHANGE~~ remove links
             result["link"] = "!#"
         logger.info(f"Answers: {preprocessor.preprocess(result['new_answer'])}")
 

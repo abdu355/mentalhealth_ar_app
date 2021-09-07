@@ -9,12 +9,14 @@ from utils import annotate_answer, get_results, shorten_text
 
 ga()
 
+# ~~CHANGE~~ rename app
 st.set_page_config(
-    page_title="Arabic QA app",
+    page_title="MentalHealth QA App",
     page_icon="📖",
     initial_sidebar_state="expanded"
     # layout="wide"
 )
+# ~~CHANGE~~ remove footer
 # footer()
 
 
@@ -24,6 +26,7 @@ rtl = lambda w: get_display(f"{arabic_reshaper.reshape(w)}")
 _, col1, _ = st.beta_columns(3)
 
 with col1:
+    # ~~CHANGE~~ remove logo
     # st.image("is2alni_logo.png", width=200)
     st.title("إسألني أي شيء")
 
@@ -38,6 +41,7 @@ p, div, input, label {
     unsafe_allow_html=True,
 )
 
+# ~~CHANGE~~ rename app and change logo on sidebar
 st.sidebar.header("MentalHealth QA App")
 st.sidebar.image("logo.png", width=150)
 st.sidebar.write("Powered by [AraELECTRA](https://github.com/aub-mind/arabert)")
